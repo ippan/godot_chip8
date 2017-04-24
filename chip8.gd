@@ -32,6 +32,7 @@ const character_sprites = [
 	0xF0, 0x80, 0xF0, 0x80, 0x80
 ]
 
+# a graphics class
 class Graphics:
 	const BUFFER_WIDTH = 64
 	const BUFFER_HEIGHT = 32
