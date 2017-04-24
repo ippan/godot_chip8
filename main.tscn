@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+
+[node name="background" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+
+[node name="load_rom" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 675.0
+margin/top = 415.0
+margin/right = 758.0
+margin/bottom = 447.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Load Rom"
+flat = false
+
+[node name="pause" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 674.0
+margin/top = 466.0
+margin/right = 757.0
+margin/bottom = 503.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Pause"
+flat = false
+
+[node name="file_dialog" type="FileDialog" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 156.0
+margin/top = 47.0
+margin/right = 647.0
+margin/bottom = 536.0
+popup/exclusive = false
+window/title = "Open a File"
+dialog/hide_on_ok = false
+mode = 0
+access = 2
+filters = StringArray(  )
+show_hidden_files = false
+
+[node name="view" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 92.0
+margin/top = 54.0
+margin/right = 732.0
+margin/bottom = 374.0
+expand = true
+
+[node name="keys" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 68.0
+margin/top = 436.0
+margin/right = 175.0
+margin/bottom = 528.0
+text = "keys:\n1, 2, 3, 4\nq, w, e, r\na, s, d, f\nz, x, c, v"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="load_rom" to="." method="load_rom"]
+
+[connection signal="pressed" from="pause" to="." method="on_pause"]
+
+[connection signal="file_selected" from="file_dialog" to="." method="on_load_rom"]
+
+
