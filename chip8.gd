@@ -9,6 +9,8 @@ var stack = []
 
 var memory = RawArray()
 
+var loaded = false
+
 var graphics
 var input
 
@@ -121,6 +123,8 @@ func get_graphics():
 	return graphics
 
 func load_rom(path):
+	loaded = false
+	
 	var file = File.new()
 	file.open(path, file.READ)
 	var buffer = file.get_buffer(file.get_len())
@@ -128,6 +132,8 @@ func load_rom(path):
 	
 	for i in range(buffer.size()):
 		memory[0x200 + i] = buffer[i]
+		
+	loaded = true
 
 func step():
 	var instruction = (memory[pc] << 8) | memory[pc + 1]
